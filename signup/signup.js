@@ -1,5 +1,5 @@
 document.getElementById("signupForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+   // event.preventDefault();
 
     // Get the input values
     const username = document.getElementById("username").value;
