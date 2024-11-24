@@ -12,14 +12,16 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="#"><img src="../logo.png" alt="Chessmates"></a>
+                <a href="#">
+                <img src="chess.png" alt="Chessmates"  class = "logoimg"></a>
+                ChessMates
             </div>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="../index.html">Play</a></li>
-                <li><a href="#">Learn</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="#">News</a></li>
+                <li><a href="#Learn">Learn</a></li>
+                <li><a href="#Community">Community</a></li>
+                <li><a href="#news">News</a></li>
             </ul>
             <div class="auth-buttons">
                 <a href="../signin/signinform.php" class="btn btn-signin">Sign In</a>
@@ -37,7 +39,7 @@
             </div>
         </section>
 
-        <section class="featured">
+        <section class="featured" id="Learn">
             <div class="feature-box">
                 <h3>Play Chess</h3>
                 <p>Challenge friends or opponents in real-time games with instant matchmaking.</p>
@@ -52,15 +54,45 @@
             </div>
         </section>
 
-        <section class="testimonial">
+        <section class="testimonial" id="Community">
             <div class="testimonial-content">
                 <h2>What Our Players Say</h2>
                 <p>"Chessmates has completely transformed my understanding of the game!" - Prish Keshari</p>
             </div>
-            <img src="../img/prish.jpg" alt="Chess Player" class="testimonial-img">
+            <img src="prish.jpg" alt="Chess Player" class="testimonial-img">
         </section>
 
-        <section class="news">
+
+        <div class="team-component">
+            <h1>TOP CHESS PLAYERS IN THE WORLD</h1>
+        
+            <hr>
+        
+            <ul class="honeycomb">
+              <li class="honeycomb-cell">
+                <img src="https://imgs.search.brave.com/pg0fHjPd0VyE2jT6AhP1KPg9UUIy4g-ouz7b9Ut9u6U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tYWdu/dXNjYXJsc2VuLmNv/bS9zdGF0aWMvaW1n/L2Jpby9tYWdudXMt/cHJvZmlsZS5qcGc" alt="Member 1" class="honeycomb-cell_img">
+                <div class="honeycomb-cell_title">Magnus Carlson</div>
+              </li>
+              <li class="honeycomb-cell">
+                <img src="https://imgs.search.brave.com/UqaM83HHMFoXcM1sikSucKV3bTntAHhxWFMMaR3ipno/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmFwaS5uZXdz/L3YzL2ltYWdlcy9i/aW4vZjZlYjI0ZGYz/NDBjMWM2NTk2YWM5/MmZlZjRkN2VlZTc" alt="Member 2" class="honeycomb-cell_img">
+                <div class="honeycomb-cell_title">pragnanandha</div>
+              </li>
+              <li class="honeycomb-cell">
+                <img src="https://imgs.search.brave.com/5cBQdgpRTyTidg7ejO4tYqvvQY19vqIcJv-Aw3mbdYQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hcHAu/ZmlkZS5jb20vdXBs/b2FkLzI4NjM0Lzk5/MDIxOWUwNjhlM2Qx/Zjc1NGI4NDZiNzcy/OGIwZWZkLmpwZw" alt="Member 3" class="honeycomb-cell_img">
+                <div class="honeycomb-cell_title">Gukesh</div>
+              </li>
+              <li class="honeycomb-cell">
+                <img src="https://imgs.search.brave.com/9Jp8m_KqSelfbUy1uG0Moc6txbG7bOztmW37_JesY5g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jYmlu/LmItY2RuLm5ldC9p/bWcvVkkvVmlkaXRf/MTFfMUo5RjhfNjc2/eDk2MC5qcGVn" alt="Member 3" class="honeycomb-cell_img">
+                <div class="honeycomb-cell_title">Vidit</div>
+              </li>
+              <!-- Add more team members as necessary -->
+              <li class="honeycomb-cell honeycomb_Hidden"></li>
+            </ul>
+          </div>
+
+
+
+        <section class="news" id="news">
             <h2>Latest News</h2>
             <div class="news-articles">
                 <article>

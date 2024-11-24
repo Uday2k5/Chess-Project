@@ -93,3 +93,8 @@ button:hover {
     font-size: 14px;
     margin-top: 10px;
 }
+
+.loginButton{
+    background-color: #006de2;
+    width: 20px;
+}

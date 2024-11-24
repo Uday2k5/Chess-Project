@@ -21,7 +21,7 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required placeholder="Enter your password">
             </div>
-            <input type="submit" id="loginButton" name="signin">
+            <input type="submit" class="loginButton" name="signin">
             <p id="errorMessage" class="error-message"></p>
         </form>
         <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
