@@ -9,17 +9,22 @@
 <body>
     <div class="login-container">
         <div class="logo">
-            <img src="chess.png" alt="Chess Logo" />
+            <img src="../img/chess.png" alt="Chess Logo" />
         </div>
         <h2>Sign Up for Chess Platform</h2>
+        <!-- Display error message if any -->
+        <?php if (!empty($errorMessage)): ?>
+            <p class="error-message"><?php echo $errorMessage; ?></p>
+        <?php endif; ?>
+
         <form id="signupForm" method="POST" action="signup.php">
             <div class="input-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required placeholder="Enter your username">
+                <input type="text" id="username" name="username" required placeholder="Enter your username" value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>">
             </div>
             <div class="input-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                <input type="email" id="email" name="email" required placeholder="Enter your email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
             </div>
             <div class="input-group">
                 <label for="password">Password:</label>
@@ -29,12 +34,11 @@
                 <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
             </div>
-            <button type="submit" name="submit" id="signupButton">Sign Up</button>
-            <p id="errorMessage" class="error-message"></p>
+            <input type="submit" name="signupButton" id="signupButton">
         </form>
         <p class="login-link">Already have an account? <a href="index2.html">Login</a></p>
     </div>
 
-    <script src="signup.js"></script>
+    <!-- <script src="./signup.js"></script> -->
 </body>
 </html>

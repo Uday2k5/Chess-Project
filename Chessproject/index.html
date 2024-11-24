@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess Game</title>
-    <!-- Chess.js and Chessboard.js Libraries -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js" integrity="sha512-xRllwz2gdZciIB+AkEbeq+gVhX8VB8XsfqeFbUh+SzHlN96dEduwtTuVuc2u9EROlmW9+yhRlxjif66ORpsgVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="lib/chessboardjs/css/chessboard-1.0.0.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Game Container -->
     <div class="game-container">
-        <!-- Sidebar for player info, move history, and controls -->
         <div class="sidebar">
             <div class="player-info">
                 <div class="player player-white">
@@ -28,36 +25,31 @@
                 </div>
             </div>
 
-            <!-- Move History -->
-            <div class="move-history">
-                <h4>Move History</h4>
-                <ul id="moveHistory"></ul>
+            <div id="gameStatus" class="game-status">
+                <h4>Game Status</h4>
+                <p id="status">White to move</p>
             </div>
 
-            <!-- Game Controls -->
             <div class="game-controls">
                 <button id="resetBtn">Reset Game</button>
                 <button id="undoBtn">Undo</button>
                 <button id="resignBtn">Resign</button>
                 <button id="drawBtn">Offer Draw</button>
             </div>
-
-            <!-- Player Name and Avatar Inputs -->
-            <div class="player-settings">
-                <h4>Change Player Info</h4>
-                <input type="text" id="player1-name-input" placeholder="Enter Player 1 Name">
-                <input type="file" id="player1-avatar-input" accept="image/*">
-                <input type="text" id="player2-name-input" placeholder="Enter Player 2 Name">
-                <input type="file" id="player2-avatar-input" accept="image/*">
-                <button id="updateInfoBtn">Update Player Info</button>
-            </div>
         </div>
 
-        <!-- Chessboard -->
         <div id="myBoard" class="chessboard-container"></div>
+
+        <div class="move-history">
+            <h4>Move History</h4>
+            <ul id="moveHistory"></ul>
+        </div>
     </div>
 
-    <!-- Game Over Modal -->
+    <div id="timer">
+        <span id="white-timer">00:00</span> - <span id="black-timer">00:00</span>
+    </div>
+
     <div id="game-over-modal" class="modal">
         <div class="modal-content">
             <h2>Game Over</h2>
@@ -66,12 +58,6 @@
         </div>
     </div>
 
-    <!-- Timer Display -->
-    <div id="timer">
-        <span id="white-timer">00:00</span> - <span id="black-timer">00:00</span>
-    </div>
-
-    <!-- Include Chessboard.js Scripts -->
     <script src="lib/chessboardjs/js/chessboard-1.0.0.min.js"></script>
     <script src="script.js"></script>
 </body>

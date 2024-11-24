@@ -6,19 +6,19 @@
 }
 
 body {
-    background-image: url('img2.jpg'); /* Add your image path here */
-    background-size: cover; /* Ensures the image covers the entire screen */
-    background-position: center center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-attachment: fixed; /* Keeps the background image fixed when scrolling */
-    height: 100vh; /* Ensures the background covers the whole viewport height */
+    background-image: url('../img/img2.jpg');
+    background-size: cover;
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh; 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .login-container {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

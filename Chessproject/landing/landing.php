@@ -22,8 +22,8 @@
                 <li><a href="#">News</a></li>
             </ul>
             <div class="auth-buttons">
-                <a href="/home/uday/Downloads/Coding/Chess-Project/signin/index2.html" class="btn btn-signin">Sign In</a>
-                <a href="/home/uday/Downloads/Coding/Chess-Project/signup/signup.html" class="btn btn-signup">Sign Up</a>
+                <a href="../signin/signinform.php" class="btn btn-signin">Sign In</a>
+                <a href="../signup/signuppage.php" class="btn btn-signup">Sign Up</a>
             </div>
         </nav>
     </header>
@@ -57,7 +57,7 @@
                 <h2>What Our Players Say</h2>
                 <p>"Chessmates has completely transformed my understanding of the game!" - Prish Keshari</p>
             </div>
-            <img src="../prish.jpg" alt="Chess Player" class="testimonial-img">
+            <img src="../img/prish.jpg" alt="Chess Player" class="testimonial-img">
         </section>
 
         <section class="news">
