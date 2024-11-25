@@ -42,7 +42,16 @@
 
         <div class="move-history">
             <h4>Move History</h4>
-            <ul id="moveHistory"></ul>
+            <table id="moveHistoryTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>White</th>
+                        <th>Black</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
     </div>
 
@@ -50,13 +59,7 @@
         <span id="white-timer">00:00</span> - <span id="black-timer">00:00</span>
     </div>
 
-    <div id="game-over-modal" class="modal">
-        <div class="modal-content">
-            <h2>Game Over</h2>
-            <p id="game-over-message"></p>
-            <button onclick="resetGame()">Reset Game</button>
-        </div>
-    </div>
+    
 
     <script src="lib/chessboardjs/js/chessboard-1.0.0.min.js"></script>
     <script src="script.js"></script>

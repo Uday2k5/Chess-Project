@@ -1,122 +1,150 @@
 var board = null;
 var game = new Chess();
+var whiteTime = 300; // 5 minutes in seconds
+var blackTime = 300; // 5 minutes in seconds
+var whiteTimerInterval = null;
+var blackTimerInterval = null;
+var isWhiteTurn = true;
 
-// Initialize the game and board
 function init() {
-  var config = {
-    draggable: true,
-    dropOffBoard: 'trash',
-    sparePieces: false,  // No extra pieces
-    position: 'start',   // Ensure it's the starting position
-    onDragStart: onDragStart,
-    onDrop: onDrop,
-    onSnapEnd: onSnapEnd,
-  };
+    var config = {
+        draggable: true,
+        position: 'start',
+        onDragStart: onDragStart,
+        onDrop: onDrop,
+        onSnapEnd: onSnapEnd,
+    };
 
-  board = ChessBoard('myBoard', config);
-  updateStatus();
-  startTimer();
+    board = Chessboard('myBoard', config);
+    updateStatus();
+    resetTimer(); // Initialize the timer
 }
 
-// Event handler when the user starts dragging a piece
-function onDragStart(source, piece, position, orientation) {
-  if (game.game_over()) return false;
+function onDragStart(source, piece) {
+    if (game.game_over()) return false;
 
-  // Prevent the user from dragging the opponent's pieces
-  if ((game.turn() === 'w' && piece.search(/^b/) !== -1) || (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
-    return false;
-  }
-}
-
-// Event handler when a piece is dropped
-function onDrop(source, target) {
-  var move = game.move({
-    from: source,
-    to: target,
-    promotion: 'q',  // You might want to dynamically handle this promotion piece
-  });
-
-  // If move is illegal, snap the piece back
-  if (move === null) return 'snapback';
-
-  updateMoveHistory(move);
-  updateStatus();
-}
-
-// Update the board position after each move
-function onSnapEnd() {
-  board.position(game.fen());
-}
-
-// Update the game status (check, checkmate, whose turn, etc.)
-function updateStatus() {
-  var status = '';
-  var moveColor = game.turn() === 'w' ? 'White' : 'Black';
-
-  // Checkmate or Draw
-  if (game.in_checkmate()) {
-    status = `Game over, ${moveColor} is in checkmate.`;
-    $('#game-over-modal').show();
-    $('#game-over-message').text(`${moveColor} has lost the game.`);
-  } else if (game.in_draw()) {
-    status = 'Game over, drawn position.';
-    $('#game-over-modal').show();
-    $('#game-over-message').text('The game is a draw.');
-  } else {
-    status = `${moveColor} to move`;
-    if (game.in_check()) {
-      status += `, ${moveColor} is in check.`;
+    if ((game.turn() === 'w' && piece.search(/^b/) !== -1) || (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+        return false;
     }
-  }
-
-  $('#status').html(status);
-  $('#fen').html(game.fen());
-  $('#pgn').html(game.pgn());
-  renderMoveHistory();
 }
 
-// Render the move history
-function renderMoveHistory() {
-  var history = game.history();
-  $('#moveHistory').empty();
-  history.forEach(function(move) {
-    $('#moveHistory').append(`<li>${move}</li>`);
-  });
-  $('#moveHistory').scrollTop($('#moveHistory')[0].scrollHeight);
+function onDrop(source, target) {
+    const move = game.move({ from: source, to: target, promotion: 'q' });
+    if (move === null) return 'snapback';
+
+    updateMoveHistory();
+    updateStatus();
+    startTimer(); // Start timer after a valid move
 }
 
-// Update move history
-function updateMoveHistory(move) {
-  var history = game.history();
-  $('#moveHistory').empty();
-  history.forEach(function(move) {
-    $('#moveHistory').append(`<li>${move}</li>`);
-  });
-  $('#moveHistory').scrollTop($('#moveHistory')[0].scrollHeight);
+function onSnapEnd() {
+    board.position(game.fen());
 }
 
-// Reset the game (new game)
-$('#resetBtn').click(function() {
-  game.reset();
-  board.position(game.fen());
-  updateMoveHistory();
-  updateStatus();
+function updateStatus() {
+    const moveColor = game.turn() === 'w' ? 'White' : 'Black';
+    const status = game.in_checkmate()
+        ? `Checkmate! ${moveColor} loses.`
+        : game.in_draw()
+        ? 'Draw!'
+        : `${moveColor} to move`;
+    $('#status').text(status);
+}
+
+function updateMoveHistory() {
+    const history = game.history();
+    const tableBody = document.querySelector('#moveHistoryTable tbody');
+    tableBody.innerHTML = '';
+
+    for (let i = 0; i < history.length; i += 2) {
+        const moveNumber = Math.floor(i / 2) + 1;
+        const whiteMove = history[i] || '';
+        const blackMove = history[i + 1] || '';
+        const row = `<tr>
+                        <td>${moveNumber}</td>
+                        <td>${whiteMove}</td>
+                        <td>${blackMove}</td>
+                    </tr>`;
+        tableBody.innerHTML += row;
+    }
+}
+
+$('#resetBtn').click(() => {
+    game.reset();
+    board.position('start');
+    updateMoveHistory();
+    updateStatus();
+    resetTimer(); // Reset the timer when the game is reset
+    isWhiteTurn = true; // White starts
 });
 
-// Undo the last move
-$('#undoBtn').click(function() {
-  var move = game.history().pop();
-  if (!move) {
-    alert("No move to undo!");
-    return;
-  }
-  game.undo();
-  board.position(game.fen());
-  updateMoveHistory();
-  updateStatus();
-});
+// Timer Functions
+function startTimer() {
+    // Stop the existing timer
+    if (whiteTimerInterval !== null) clearInterval(whiteTimerInterval);
+    if (blackTimerInterval !== null) clearInterval(blackTimerInterval);
 
-// Start the game when the page loads
-$(document).ready(function() {
-  init();
-});
+    // Start the timer for the active player
+    if (isWhiteTurn) {
+        whiteTimerInterval = setInterval(function() {
+            whiteTime--;
+            $('#white-timer').text(formatTime(whiteTime));
+            if (whiteTime <= 0) {
+                gameOver('Black wins, White ran out of time');
+            }
+        }, 1000);
+    } else {
+        blackTimerInterval = setInterval(function() {
+            blackTime--;
+            $('#black-timer').text(formatTime(blackTime));
+            if (blackTime <= 0) {
+                gameOver('White wins, Black ran out of time');
+            }
+        }, 1000);
+    }
+
+    // Toggle the player's turn
+    isWhiteTurn = !isWhiteTurn;
+}
+
+function resetTimer() {
+    // Stop all timers and reset the time to 5 minutes
+    clearInterval(whiteTimerInterval);
+    clearInterval(blackTimerInterval);
+    whiteTime = 300; // 5 minutes in seconds
+    blackTime = 300; // 5 minutes in seconds
+    $('#white-timer').text('05:00');
+    $('#black-timer').text('05:00');
+}
+
+function formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    return `${padTime(minutes)}:${padTime(seconds)}`;
+}
+
+function padTime(time) {
+    return time < 10 ? '0' + time : time;
+}
+
+// Game over function when a player runs out of time
+function gameOver(message) {
+    clearInterval(whiteTimerInterval);
+    clearInterval(blackTimerInterval);
+    $('#game-over-modal').show();
+    $('#game-over-message').text(message);
+}
+
+// Hide the game over modal and reset the game
+function resetGame() {
+    $('#game-over-modal').hide();
+    game.reset();
+    board.position('start');
+    updateMoveHistory();
+    updateStatus();
+    resetTimer();
+    isWhiteTurn = true; // White starts first
+}
+
+// Initialize the game
+init();
