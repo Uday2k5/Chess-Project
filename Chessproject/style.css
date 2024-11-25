@@ -106,6 +106,14 @@ body {
     gap: 10px;
 }
 
+.game-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
 button {
     width: 100%;
     padding: 12px;

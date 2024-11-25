@@ -146,5 +146,46 @@ function resetGame() {
     isWhiteTurn = true; // White starts first
 }
 
+function updateMoveHistory() {
+    const history = game.history();
+    const tableBody = document.querySelector('#moveHistoryTable tbody');
+    tableBody.innerHTML = ''; // Clear the table body before adding new rows
+
+    let moveNumber = 0;
+    let whiteMove, blackMove;
+    for (let i = 0; i < history.length; i += 2) {
+        moveNumber++;
+        whiteMove = history[i] || '';
+        blackMove = history[i + 1] || '';
+
+        // Add to the move history table
+        const row = `<tr>
+                        <td>${moveNumber}</td>
+                        <td>${whiteMove}</td>
+                        <td>${blackMove}</td>
+                    </tr>`;
+        tableBody.innerHTML += row;
+
+        // Send both white and black moves to the PHP script together
+        $.ajax({
+            url: './insertmoves.php',
+            type: 'POST',
+            data: {
+                game_id: 1,  // Assuming a game_id of 1 for simplicity, consider changing this dynamically
+                move_number: moveNumber,
+                white_move: whiteMove,
+                black_move: blackMove
+            },
+            success: function(response) {
+                console.log("Move history saved to database: " + response);
+            },
+            error: function(xhr, status, error) {
+                console.error("Error saving move history: " + error);
+            }
+        });
+    }
+}
+
+
 // Initialize the game
 init();
