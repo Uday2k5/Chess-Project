@@ -70,20 +70,28 @@
         
             <ul class="honeycomb">
               <li class="honeycomb-cell">
+                <a href="https://ratings.fide.com/profile/1503014">
                 <img src="https://imgs.search.brave.com/pg0fHjPd0VyE2jT6AhP1KPg9UUIy4g-ouz7b9Ut9u6U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tYWdu/dXNjYXJsc2VuLmNv/bS9zdGF0aWMvaW1n/L2Jpby9tYWdudXMt/cHJvZmlsZS5qcGc" alt="Member 1" class="honeycomb-cell_img">
                 <div class="honeycomb-cell_title">Magnus Carlson</div>
+               </a>
               </li>
               <li class="honeycomb-cell">
+                <a href="https://ratings.fide.com/profile/25059530">
                 <img src="https://imgs.search.brave.com/UqaM83HHMFoXcM1sikSucKV3bTntAHhxWFMMaR3ipno/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmFwaS5uZXdz/L3YzL2ltYWdlcy9i/aW4vZjZlYjI0ZGYz/NDBjMWM2NTk2YWM5/MmZlZjRkN2VlZTc" alt="Member 2" class="honeycomb-cell_img">
                 <div class="honeycomb-cell_title">pragnanandha</div>
+                </a>
               </li>
               <li class="honeycomb-cell">
+              <a href="https://ratings.fide.com/profile/46616543">
                 <img src="https://imgs.search.brave.com/5cBQdgpRTyTidg7ejO4tYqvvQY19vqIcJv-Aw3mbdYQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hcHAu/ZmlkZS5jb20vdXBs/b2FkLzI4NjM0Lzk5/MDIxOWUwNjhlM2Qx/Zjc1NGI4NDZiNzcy/OGIwZWZkLmpwZw" alt="Member 3" class="honeycomb-cell_img">
                 <div class="honeycomb-cell_title">Gukesh</div>
+              </a>  
               </li>
               <li class="honeycomb-cell">
+              <a href="https://ratings.fide.com/profile/5029465">
                 <img src="https://imgs.search.brave.com/9Jp8m_KqSelfbUy1uG0Moc6txbG7bOztmW37_JesY5g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jYmlu/LmItY2RuLm5ldC9p/bWcvVkkvVmlkaXRf/MTFfMUo5RjhfNjc2/eDk2MC5qcGVn" alt="Member 3" class="honeycomb-cell_img">
                 <div class="honeycomb-cell_title">Vidit</div>
+               </a>
               </li>
               <!-- Add more team members as necessary -->
               <li class="honeycomb-cell honeycomb_Hidden"></li>

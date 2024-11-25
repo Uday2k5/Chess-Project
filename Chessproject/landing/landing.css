@@ -344,6 +344,12 @@ footer ul a:hover {
     font-weight: 700;
     font-size: 1.75em;
     transition: opacity 350ms;
+    
+  }
+
+  .honeycomb-cell a{
+    text-decoration: none;
+
   }
   .honeycomb-cell_title > small {
     font-weight: 300;
