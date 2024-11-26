@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+]<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,49 +38,7 @@
             </div>
         </section>
 
-        <section class="featured" id="Learn">
-            <div class="feature-box">
-                <h3>Play Chess</h3>
-                <p>Challenge friends or opponents in real-time games with instant matchmaking.</p>
-            </div>
-            <div class="feature-box overlap">
-                <h3>Learn Chess</h3>
-                <p>Access lessons, tutorials, and video guides to become a grandmaster.</p>
-            </div>
-            <div class="feature-box">
-                <h3>Compete</h3>
-                <p>Join exciting tournaments and showcase your skills to the world.</p>
-            </div>
-        </section>
-
-        <section class="testimonial" id="Community">
-            <div class="testimonial-content">
-                <h2>What Our Players Say</h2>
-                <p>"Chessmates has completely transformed my understanding of the game!" - Prish Keshari</p>
-            </div>
-            <img src="../img/prish.jpg" alt="Chess Player" class="testimonial-img">
-        </section>
-
-        <section class="review-slider">
-           <h2>Player Reviews</h2>
-            <div class="slider-container">
-                  <div class="slider" id="review-slider"></div>
-            </div>
-        </section>
-
-
-        <!-- Add Review Section -->
-        <section class="add-review">
-            <h2>Add Your Review</h2>
-            <form action="submit_review.php" method="POST" class="review-form">
-                <textarea name="review_text" placeholder="Write your review here..." required></textarea>
-                <input type="text" name="review_name" placeholder="Your name..." required>
-                <button type="submit">Submit Review</button>
-            </form>
-        </section>
-
-
-
+        
 
         <div class="team-component">
             <h1>TOP CHESS PLAYERS IN THE WORLD</h1>
@@ -112,30 +70,55 @@
                 <div class="honeycomb-cell_title">Vidit</div>
                </a>
               </li>
-              <!-- Add more team members as necessary -->
+              <!-- more team members can be added  -->
               <li class="honeycomb-cell honeycomb_Hidden"></li>
             </ul>
           </div>
 
+        <section class="testimonial" id="Community">
+            <div class="testimonial-content">
+                <h2>What Our Players Say</h2>
+                <p>"Chessmates has completely transformed my understanding of the game!" - Prish Keshari</p>
+            </div>
+            <img src="../img/prish.jpg" alt="Chess Player" class="testimonial-img">
+        </section>
 
-
-        <section class="news" id="news">
-            <h2>Latest News</h2>
-            <div class="news-articles">
-                <article>
-                    <h3>Upcoming Chess Tournaments</h3>
-                    <p>Stay updated on all the major chess events happening around the globe.</p>
-                </article>
-                <article>
-                    <h3>Chess Strategies for Beginners</h3>
-                    <p>Learn essential opening moves to dominate your opponent.</p>
-                </article>
-                <article>
-                    <h3>Advanced Tactics</h3>
-                    <p>Delve deeper into tactical moves to outsmart your competitors.</p>
-                </article>
+        <section class="review-slider">
+            <div class="slider-container">
+                  <div class="slider" id="review-slider"></div>
             </div>
         </section>
+
+        
+        <!-- Review Section hai-->
+        <section class="add-review">
+            <h2>Add Your Review</h2>
+            <form action="submit_review.php" method="POST" class="review-form">
+                <input type="text" name="review_name" placeholder="Enter your Name" class="text1" required>
+                <textarea name="review_text" placeholder="Add your Review " class="text1" required></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+        </section>
+
+
+        <section class="featured" id="Learn">
+            <div class="feature-box">
+                <h3>Play Chess</h3>
+                <p>Challenge friends or opponents in real-time games with instant matchmaking.</p>
+            </div>
+            <div class="feature-box overlap">
+                <h3>Learn Chess</h3>
+                <p>Access lessons, tutorials, and video guides to become a grandmaster.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Compete</h3>
+                <p>Join exciting tournaments and showcase your skills to the world.</p>
+            </div>
+        </section>
+
+        
+
+
     </main>
 
     <footer>
@@ -187,26 +170,10 @@
         }
         const offset = -currentSlideIndex * (slides[0].offsetWidth + 20); // 20px is the margin
         slider.style.transform = `translateX(${offset}px)`;
+
     }
 
-    // Optional: Add navigation buttons
-    const sliderButtons = document.createElement('div');
-    sliderButtons.classList.add('slider-buttons');
-
-    const prevButton = document.createElement('button');
-    prevButton.classList.add('slider-button');
-    prevButton.innerHTML = '←';
-    prevButton.onclick = () => showSlide(currentSlideIndex - 1);
-    sliderButtons.appendChild(prevButton);
-
-    const nextButton = document.createElement('button');
-    nextButton.classList.add('slider-button');
-    nextButton.innerHTML = '→';
-    nextButton.onclick = () => showSlide(currentSlideIndex + 1);
-    sliderButtons.appendChild(nextButton);
-
-    const sliderContainer = document.querySelector('.slider-container');
-    sliderContainer.appendChild(sliderButtons);
+    
 
     // Initial slider setup
     if (slides.length > 0) {

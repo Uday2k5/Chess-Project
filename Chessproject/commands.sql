@@ -3,8 +3,9 @@
 -- xampp server
 
 create table userinfo (
+    id int primary key auto_increment,  
     -- email for uniquely identifying users
-    email varchar(255) not null PRIMARY KEY,
+    email varchar(255) not null,
     -- username for each users  
     username varchar(255) not null UNIQUE,    
     -- storing hashed password
