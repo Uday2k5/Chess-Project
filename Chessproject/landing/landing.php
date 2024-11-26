@@ -18,7 +18,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="../index.html">Play</a></li>
+                <li><a href="../index.php">Play</a></li>
                 <li><a href="#Learn">Learn</a></li>
                 <li><a href="#Community">Community</a></li>
                 <li><a href="#news">News</a></li>
@@ -35,7 +35,7 @@
             <div class="hero-content">
                 <h1>Master the Game of Chess</h1>
                 <p>Sharpen your skills, challenge global players, and become a chess master.</p>
-                <a href="../index.html" class="btn btn-playnow">Play Now</a>
+                <a href="../index.php" class="btn btn-playnow">Play Now</a>
             </div>
         </section>
 
