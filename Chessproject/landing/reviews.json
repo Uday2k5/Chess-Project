@@ -1,0 +1,20 @@
+{
+    "reviews": [
+        {
+            "text": "This game is amazing! Highly recommend to all chess lovers.",
+            "name": "John Doe"
+        },
+        {
+            "text": "Best chess platform ever! The competition is fierce and fun.",
+            "name": "Alice Smith"
+        },
+        {
+            "text": "Great Experience!",
+            "name": "Akshit Gupta"
+        },
+        {
+            "text": "Had a great time playing game on ChessMates!",
+            "name": "Harsh Banswal"
+        }
+    ]
+}

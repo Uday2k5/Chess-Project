@@ -419,4 +419,208 @@ footer ul a:hover {
   }
   
   
-  
+  /* Review Slider */
+.review-slider {
+  background-color: black;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  margin-top: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.review-slider h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.slider {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.slide {
+  min-width: 300px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.slide:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.slide p {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.slide span {
+  font-size: 14px;
+  font-weight: 300;
+  color: #f39c12;
+}
+
+/* Optional Slider Animations */
+.slider {
+  animation: slide 15s infinite linear;
+}
+
+@keyframes slide {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-300px); }
+  50% { transform: translateX(-600px); }
+  75% { transform: translateX(-900px); }
+  100% { transform: translateX(0); }
+}
+/* Add Review Section */
+.add-review {
+  background-color: white;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 20px;
+  border-top: 2px solid #f39c12;
+}
+
+.add-review h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.review-form textarea,
+.review-form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+}
+
+.review-form button {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: white;
+  background-color: #f39c12;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.review-form button:hover {
+  background-color: #d87c0e;
+}
+/* Add styles for the review slider */
+.review-slider {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+  color:black; 
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  justify-content: space-between;
+}
+
+.slider:hover {
+  animation-play-state: paused;  /* Pauses the animation when hovered */
+}
+
+.slide {
+  min-width: 300px;
+  margin: 0 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.slide p {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.slide span {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+}
+
+.slider-container {
+  position: relative;
+}
+
+.slider-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.slider-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.slider-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.featured:hover .feature-box:nth-child(1) {
+  transform: translateX(45%);  
+  box-shadow: 0 15px 35px greenyellow;
+    
+}
+
+.featured:hover .feature-box:nth-child(2) {
+  transform: translateY(-100%); 
+  box-shadow: 0 15px 35px greenyellow;
+    
+}
+
+.featured:hover .feature-box:nth-child(3) {
+  transform: translateX(-45%);  
+  box-shadow: 0 15px 35px greenyellow;
+    
+}
+
+.featured:not(:hover) .feature-box {
+  transform: translateX(0%); 
+}

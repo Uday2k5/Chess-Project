@@ -61,6 +61,26 @@
             <img src="../img/prish.jpg" alt="Chess Player" class="testimonial-img">
         </section>
 
+        <section class="review-slider">
+           <h2>Player Reviews</h2>
+            <div class="slider-container">
+                  <div class="slider" id="review-slider"></div>
+            </div>
+        </section>
+
+
+        <!-- Add Review Section -->
+        <section class="add-review">
+            <h2>Add Your Review</h2>
+            <form action="submit_review.php" method="POST" class="review-form">
+                <textarea name="review_text" placeholder="Write your review here..." required></textarea>
+                <input type="text" name="review_name" placeholder="Your name..." required>
+                <button type="submit">Submit Review</button>
+            </form>
+        </section>
+
+
+
 
         <div class="team-component">
             <h1>TOP CHESS PLAYERS IN THE WORLD</h1>
@@ -126,5 +146,72 @@
             <li><a href="#">Contact</a></li>
         </ul>
     </footer>
+
+    <script>
+    // Load reviews dynamically
+    fetch('./reviews.json')
+        .then(response => response.json())
+        .then(data => {
+            const slider = document.getElementById('review-slider');
+            if (data.reviews.length > 0) {
+                // Create and append each review as a slide
+                data.reviews.forEach(review => {
+                    const slide = document.createElement('div');
+                    slide.classList.add('slide');
+                    slide.innerHTML = `
+                        <p>"${review.text}"</p>
+                        <span>- ${review.name}</span>
+                    `;
+                    slider.appendChild(slide);
+                });
+            } else {
+                // If no reviews, show a placeholder message
+                slider.innerHTML = '<p>No reviews available yet.</p>';
+            }
+        })
+        .catch(error => console.error('Error loading reviews:', error));
+
+    // Optional: Add slider navigation controls
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        const slider = document.querySelector('.slider');
+        if (index >= totalSlides) {
+            currentSlideIndex = 0;
+        } else if (index < 0) {
+            currentSlideIndex = totalSlides - 1;
+        } else {
+            currentSlideIndex = index;
+        }
+        const offset = -currentSlideIndex * (slides[0].offsetWidth + 20); // 20px is the margin
+        slider.style.transform = `translateX(${offset}px)`;
+    }
+
+    // Optional: Add navigation buttons
+    const sliderButtons = document.createElement('div');
+    sliderButtons.classList.add('slider-buttons');
+
+    const prevButton = document.createElement('button');
+    prevButton.classList.add('slider-button');
+    prevButton.innerHTML = '←';
+    prevButton.onclick = () => showSlide(currentSlideIndex - 1);
+    sliderButtons.appendChild(prevButton);
+
+    const nextButton = document.createElement('button');
+    nextButton.classList.add('slider-button');
+    nextButton.innerHTML = '→';
+    nextButton.onclick = () => showSlide(currentSlideIndex + 1);
+    sliderButtons.appendChild(nextButton);
+
+    const sliderContainer = document.querySelector('.slider-container');
+    sliderContainer.appendChild(sliderButtons);
+
+    // Initial slider setup
+    if (slides.length > 0) {
+        showSlide(currentSlideIndex);
+    }
+</script>
 </body>
 </html>
