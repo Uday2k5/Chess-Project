@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess Platform - Sign Up</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="signup.css">
 </head>
 <body>
@@ -11,8 +11,7 @@
         <div class="logo">
             <img src="../img/chess.png" alt="Chess Logo" />
         </div>
-        <h2>Sign Up for Chess Platform</h2>
-        <!-- Display error message if any -->
+        <h2>Sign Up for CHESSMATES</h2>
         <?php if (!empty($errorMessage)): ?>
             <p class="error-message"><?php echo $errorMessage; ?></p>
         <?php endif; ?>
@@ -36,9 +35,8 @@
             </div>
             <input type="submit" name="signupButton" id="signupButton">
         </form>
-        <p class="login-link">Already have an account? <a href="index2.html">Login</a></p>
+        <p class="login-link">Already have an account? <a href="../signin/signinform.php">Login</a></p>
     </div>
 
-    <!-- <script src="./signup.js"></script> -->
 </body>
 </html>

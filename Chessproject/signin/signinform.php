@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess Platform - Login</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
         <div class="logo">
             <img src="../img/chess.png" alt="Chess Logo" />
         </div>
-        <h2>Login to Chess Platform</h2>
+        <h2>Login to CHESSMATES</h2>
         <form id="loginForm" method="POST" action="signin.php">
             <div class="input-group">
                 <label for="username">EMAIL:</label>
