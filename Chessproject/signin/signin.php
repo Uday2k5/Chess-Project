@@ -11,12 +11,11 @@ if (isset($_POST['signin'])) {
     if ($result && mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
 
-        
         if (password_verify($password, $row['password'])) {
-                session_start();
-                $_SESSION['loggedin'] = true;
-                $_SESSION['username'] = $username;
-                header("Location: ../landing/landing.php");
+            session_start();
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $row['username'];  // Store the username in the session
+            header("Location: ../welcome/welcome.php");  // Redirect to welcome.php
             exit();
         } else {
             echo '<script>

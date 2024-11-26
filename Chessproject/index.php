@@ -31,6 +31,7 @@
                 <!-- <button id="undoBtn">Undo</button> -->
                 <button id="resignBtn">Resign</button>
                 <button id="drawBtn">Offer Draw</button>
+                <button id="drawBtn">New Game</button>
             </div>
         </div>
         
