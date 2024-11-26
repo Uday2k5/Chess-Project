@@ -12,7 +12,7 @@
         <nav>
             <div class="logo">
                 <a href="#">
-                <img src="chess.png" alt="Chessmates"  class = "logoimg"></a>
+                <img src="../img/chess.png" alt="Chessmates"  class = "logoimg"></a>
                 ChessMates
             </div>
             <ul class="nav-links">
