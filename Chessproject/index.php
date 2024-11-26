@@ -14,14 +14,14 @@
         <div class="sidebar">
             <div class="player-info">
                 <div class="player player-white">
-                    <img src="player1.png" alt="Player White" class="player-avatar" id="player1-avatar">
+                    <img src="./img/prish.jpg" alt="Player White" class="player-avatar" id="player1-avatar">
                     <h3 id="player1-name">Player 1</h3>
-                    <p>Rating: 1500</p>
+                    <p>Rating: 800</p>
                 </div>
                 <div class="player player-black">
-                    <img src="player2.png" alt="Player Black" class="player-avatar" id="player2-avatar">
+                    <img src="https://imgs.search.brave.com/pg0fHjPd0VyE2jT6AhP1KPg9UUIy4g-ouz7b9Ut9u6U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tYWdu/dXNjYXJsc2VuLmNv/bS9zdGF0aWMvaW1n/L2Jpby9tYWdudXMt/cHJvZmlsZS5qcGc" alt="Player Black" class="player-avatar" id="player2-avatar">
                     <h3 id="player2-name">Player 2</h3>
-                    <p>Rating: 1600</p>
+                    <p>Rating: 2882</p>
                 </div>
             </div>
 
@@ -34,7 +34,12 @@
             </div>
         </div>
         
-        <div id="myBoard" class="chessboard-container"></div>
+        <!-- <div class=""> -->
+            <div id="myBoard" class="chessboard-container"></div>
+            <div id="timer">
+                <span id="white-timer">00:00</span> - <span id="black-timer">00:00</span>
+            </div>
+        <!-- </div> -->
         
         <!-- <div class="game-info"> -->
             <div class="move-history">
@@ -57,11 +62,6 @@
         <!-- </div> -->
     </div>
 
-    <div id="timer">
-        <span id="white-timer">00:00</span> - <span id="black-timer">00:00</span>
-    </div>
-
-    
 
     <script src="./lib/chessboardjs/js/chessboard-1.0.0.min.js"></script>
     <script src="script.js"></script>

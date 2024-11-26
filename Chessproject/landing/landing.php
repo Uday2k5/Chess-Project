@@ -58,7 +58,7 @@
                 <h2>What Our Players Say</h2>
                 <p>"Chessmates has completely transformed my understanding of the game!" - Prish Keshari</p>
             </div>
-            <img src="prish.jpg" alt="Chess Player" class="testimonial-img">
+            <img src="../img/prish.jpg" alt="Chess Player" class="testimonial-img">
         </section>
 
 

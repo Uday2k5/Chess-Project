@@ -1,11 +1,9 @@
-/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* General Layout */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #121212;
@@ -17,23 +15,23 @@ body {
     margin: 0;
     overflow: hidden;
 }
-
-/* Game Container */
 .game-container {
-    display: flex;
-    justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
-    height: 800px;
-    background-color: #222;
-    border-radius: 20px;
+    background-color: #171616;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
-    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
     gap: 20px;
-    position: relative;
+    justify-content: space-between;
+    padding: 20px;
 }
 
-/* Sidebar */
+.game{
+    display: flex;
+    flex-direction: column;
+}
+
 .sidebar {
     background-color: #2d2d2d;
     width: 270px;
@@ -42,14 +40,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 100%;
-    position: absolute;
-    top: 20px;
-    left: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Player Info */
 .player-info {
     display: flex;
     flex-direction: column;
@@ -66,7 +59,7 @@ body {
 
 .player-avatar {
     width: 70px;
-    height: 70px;
+    height: auto;
     border-radius: 50%;
     margin-bottom: 10px;
     object-fit: cover;
@@ -84,7 +77,6 @@ body {
     color: #bbb;
 }
 
-/* Game Status */
 .game-status {
     width: 100%;
     text-align: center;
@@ -98,20 +90,11 @@ body {
     text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
 }
 
-/* Game Controls */
 .game-controls {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.game-info{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    
 }
 
 button {
@@ -135,7 +118,6 @@ button:active {
     transform: scale(0.98);
 }
 
-/* Timer */
 #timer {
     position: fixed;
     top: 20px;
@@ -145,20 +127,17 @@ button:active {
     color: #fff;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Move History */
 .move-history {
-    position: absolute;
-    top: 100px;
-    right: 2px;
     background-color: #2d2d2d;
     padding: 20px;
     border-radius: 15px;
-    width: 300px;
-    height: 500px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
     overflow-y: auto;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
@@ -180,14 +159,12 @@ button:active {
     background-color: #333;
 }
 
-/* Chessboard Styling */
 .chessboard-container {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #f4f4f4;
-    width: 600px;
-    height: 600px;
+    position: relative;
+    /* background-color: #f4f4f4; */
+    width: 100%;
+    max-width: 500px;
+    margin-top: 5%;
+
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
