@@ -10,7 +10,7 @@
     <div class="login-container">
         <div class="logo">
             <img src="../img/chess.png" alt="Chess Logo" />
-        </div>
+        </div>GIT
         <h2>Login to Chess Platform</h2>
         <form id="loginForm" method="POST" action="signin.php">
             <div class="input-group">

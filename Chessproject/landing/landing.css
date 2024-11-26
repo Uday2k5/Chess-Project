@@ -1,3 +1,4 @@
+
 * Global Reset */
 * {
     margin: 0;
@@ -134,7 +135,7 @@ nav {
 }
 
 .feature-box {
-    width: 30%;
+    width: 28%;
     background-color: aliceblue;
     padding: 30px;
     text-align: center;
@@ -285,7 +286,7 @@ footer ul a:hover {
     text-align: center;
     color: aliceblue;
         background: linear-gradient(to right, red, orange, yellow, rgb(128, 0, 115), blue, indigo, violet);
-        -webkit-background-clip: text; /* For Safari */
+         -webkit-background-clip: text; /*For Safari*/
         color: transparent; /* Make the text color transparent to show the background gradient */
   }
   
