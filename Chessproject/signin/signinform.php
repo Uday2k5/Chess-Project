@@ -24,7 +24,7 @@
             <input type="submit" class="loginButton" name="signin">
             <p id="errorMessage" class="error-message"></p>
         </form>
-        <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        <p class="signup-link">Don't have an account? <a href="../signup/signuppage.php">Sign Up</a></p>
     </div>
 
     <script src="script2.js"></script>

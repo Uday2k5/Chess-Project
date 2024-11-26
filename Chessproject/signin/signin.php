@@ -21,13 +21,13 @@ if (isset($_POST['signin'])) {
         } else {
             echo '<script>
                 alert("Login failed. Invalid username or password!!");
-                window.location.href = "signin.php";
+                window.location.href = "signinform.php";
             </script>';
         }
     } else {
         echo '<script>
             alert("Login failed. Invalid username or password!!");
-            window.location.href = "signin.php";
+            window.location.href = "signinform.php";
         </script>';
     }
 }
