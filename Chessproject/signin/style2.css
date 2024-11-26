@@ -1,4 +1,4 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -58,7 +58,7 @@ h2 {
     border-radius: 4px;
 }
 
-button {
+.loginButton {
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
@@ -66,7 +66,7 @@ button {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    width: 100%;
+    width: 100px;
 }
 
 button:hover {
@@ -96,5 +96,5 @@ button:hover {
 
 .loginButton{
     background-color: #006de2;
-    width: 20px;
+    width: 100px;
 }
