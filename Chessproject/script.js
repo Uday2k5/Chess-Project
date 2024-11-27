@@ -66,6 +66,22 @@ function updateMoveHistory() {
                         <td>${blackMove}</td>
                     </tr>`;
         tableBody.innerHTML += row;
+        $.ajax({
+            url: './insertmoves.php',
+            type: 'POST',
+            data: {
+                game_id: 2,
+                move_number: moveNumber,
+                white_move: whiteMove,
+                black_move: blackMove
+            },
+            success: function(response) {
+                console.log("Move history saved to database: " + response);
+            },
+            error: function(xhr, status, error) {
+                console.error("Error saving move history: " + error);
+            }
+        });
     }
 }
 

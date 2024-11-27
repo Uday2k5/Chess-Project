@@ -125,7 +125,7 @@ if (isset($_POST['play_now'])) {
     <script src="./lib/chessboardjs/js/chessboard-1.0.0.min.js"></script>
     <script src="script.js"></script>
     <script>
-     var gameId = "<?php echo $game_id; ?>";
+     var gameId = "<?php echo isset($game_id)? $game_id: ''; ?>";
     </script>
 </body>
 </html>

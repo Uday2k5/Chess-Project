@@ -47,25 +47,25 @@
         
             <ul class="honeycomb">
               <li class="honeycomb-cell">
-                <a href="https://ratings.fide.com/profile/1503014">
+                <a target="_blank" href="https://ratings.fide.com/profile/1503014">
                 <img src="https://imgs.search.brave.com/pg0fHjPd0VyE2jT6AhP1KPg9UUIy4g-ouz7b9Ut9u6U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tYWdu/dXNjYXJsc2VuLmNv/bS9zdGF0aWMvaW1n/L2Jpby9tYWdudXMt/cHJvZmlsZS5qcGc" alt="Member 1" class="honeycomb-cell_img">
                 <div class="honeycomb-cell_title">Magnus Carlson</div>
                </a>
               </li>
               <li class="honeycomb-cell">
-                <a href="https://ratings.fide.com/profile/25059530">
+                <a target="_blank" href="https://ratings.fide.com/profile/25059530">
                 <img src="https://imgs.search.brave.com/UqaM83HHMFoXcM1sikSucKV3bTntAHhxWFMMaR3ipno/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmFwaS5uZXdz/L3YzL2ltYWdlcy9i/aW4vZjZlYjI0ZGYz/NDBjMWM2NTk2YWM5/MmZlZjRkN2VlZTc" alt="Member 2" class="honeycomb-cell_img">
                 <div class="honeycomb-cell_title">pragnanandha</div>
                 </a>
               </li>
               <li class="honeycomb-cell">
-              <a href="https://ratings.fide.com/profile/46616543">
+              <a target="_blank" href="https://ratings.fide.com/profile/46616543">
                 <img src="https://imgs.search.brave.com/5cBQdgpRTyTidg7ejO4tYqvvQY19vqIcJv-Aw3mbdYQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hcHAu/ZmlkZS5jb20vdXBs/b2FkLzI4NjM0Lzk5/MDIxOWUwNjhlM2Qx/Zjc1NGI4NDZiNzcy/OGIwZWZkLmpwZw" alt="Member 3" class="honeycomb-cell_img">
                 <div class="honeycomb-cell_title">Gukesh</div>
               </a>  
               </li>
               <li class="honeycomb-cell">
-              <a href="https://ratings.fide.com/profile/5029465">
+              <a target="_blank" href="https://ratings.fide.com/profile/5029465">
                 <img src="https://imgs.search.brave.com/9Jp8m_KqSelfbUy1uG0Moc6txbG7bOztmW37_JesY5g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jYmlu/LmItY2RuLm5ldC9p/bWcvVkkvVmlkaXRf/MTFfMUo5RjhfNjc2/eDk2MC5qcGVn" alt="Member 3" class="honeycomb-cell_img">
                 <div class="honeycomb-cell_title">Vidit</div>
                </a>
@@ -107,12 +107,16 @@
                 <p>Challenge friends or opponents in real-time games with instant matchmaking.</p>
             </div>
             <div class="feature-box overlap">
-                <h3>Learn Chess</h3>
-                <p>Access lessons, tutorials, and video guides to become a grandmaster.</p>
+                <a target="_blank" href="https://youtu.be/_eBxJWRHV48?si=aXlsuAwSoj_cePw3" style="text-decoration: none;">
+                    <h3>Learn Chess</h3>
+                    <p>Access lessons, tutorials, and video guides to become a grandmaster.</p>
+                </a>
             </div>
             <div class="feature-box">
-                <h3>Compete</h3>
-                <p>Join exciting tournaments and showcase your skills to the world.</p>
+                <a target="_blank" href="https://chessbase.in/calendar" style="text-decoration: none;">
+                <h3>Upcoming Tournament</h3>
+                <p>Join exciting tournaments and support your favourate chess GM.</p>
+                </a>
             </div>
         </section>
 
@@ -131,13 +135,11 @@
     </footer>
 
     <script>
-    // Load reviews dynamically
     fetch('./reviews.json')
         .then(response => response.json())
         .then(data => {
             const slider = document.getElementById('review-slider');
             if (data.reviews.length > 0) {
-                // Create and append each review as a slide
                 data.reviews.forEach(review => {
                     const slide = document.createElement('div');
                     slide.classList.add('slide');
@@ -148,13 +150,12 @@
                     slider.appendChild(slide);
                 });
             } else {
-                // If no reviews, show a placeholder message
+                // if no reviews, show a placeholder message
                 slider.innerHTML = '<p>No reviews available yet.</p>';
             }
         })
         .catch(error => console.error('Error loading reviews:', error));
 
-    // Optional: Add slider navigation controls
     let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
@@ -175,7 +176,6 @@
 
     
 
-    // Initial slider setup
     if (slides.length > 0) {
         showSlide(currentSlideIndex);
     }
