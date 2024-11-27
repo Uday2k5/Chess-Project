@@ -8,8 +8,7 @@ if (isset($_SESSION['username'])) {
     $username = "Guest";
 }
 
-// Query to fetch past games data
-$query = "SELECT id, player_white, player_black, created_at 
+$query = "SELECT id, created_at ,winner
           FROM games 
           WHERE player_white = '$username' OR player_black = '$username'
           ORDER BY created_at DESC 
@@ -54,19 +53,23 @@ $result = mysqli_query($conn, $query);
             <img src="https://img.icons8.com/?size=100&id=kDoeg22e5jUY&format=png&color=000000" alt="Player Image"> <!-- Add player image path -->
             <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
             <p>We are excited to have you on Chessmates! Ready to start playing?</p>
-            <a href="../index.php" class="btn btn-playnow">Play Now</a>
+            <!-- <a href="../index.php" class="btn btn-playnow">Play Now</a> -->
+            <!-- <a href="../index.php" class="btn btn-playnow" id="playNowBtn">Play Now</a> -->
+            <form method="POST" action="../index.php">
+                <button type="submit" name="play_now" class="btn btn-playnow" id="playNowBtn">Play Now</button>
+            </form>
         </section>
 
-        <!-- Past Games Table -->
         <section class="past-games">
             <h2>Past Games</h2>
             <table class="games-table">
                 <thead>
                     <tr>
                         <th>Game ID</th>
-                        <th>Player (White)</th>
-                        <th>Player (Black)</th>
+                        <!-- <th>Player (White)</th>
+                        <th>Player (Black)</th> -->
                         <th>Game Date</th>
+                        <th>winner</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,9 +78,14 @@ $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>";
                             echo "<td>" . $row['id'] . "</td>";
-                            echo "<td>" . htmlspecialchars($row['player_white']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['player_black']) . "</td>";
+                            // echo "<td>" . htmlspecialchars($row['player_white']) . "</td>";
+                            // echo "<td>" . htmlspecialchars($row['player_black']) . "</td>";
                             echo "<td>" . $row['created_at'] . "</td>";
+                            if($row['winner']){
+                                echo "<td>" .$row['winner']."</td>";
+                            }else{
+                                echo "<td> ABORTED </td>";
+                            }
                             echo "</tr>";
                         }
                     } else {

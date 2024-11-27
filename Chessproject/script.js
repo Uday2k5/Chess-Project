@@ -17,7 +17,7 @@ function init() {
 
     board = Chessboard('myBoard', config);
     updateStatus();
-    resetTimer(); // Initialize the timer
+    resetTimer();
 }
 
 function onDragStart(source, piece) {
@@ -34,7 +34,7 @@ function onDrop(source, target) {
 
     updateMoveHistory();
     updateStatus();
-    startTimer(); // Start timer after a valid move
+    startTimer();
 }
 
 function onSnapEnd() {
@@ -74,17 +74,14 @@ $('#resetBtn').click(() => {
     board.position('start');
     updateMoveHistory();
     updateStatus();
-    resetTimer(); // Reset the timer when the game is reset
-    isWhiteTurn = true; // White starts
+    resetTimer();
+    isWhiteTurn = true;
 });
 
-// Timer Functions
 function startTimer() {
-    // Stop the existing timer
     if (whiteTimerInterval !== null) clearInterval(whiteTimerInterval);
     if (blackTimerInterval !== null) clearInterval(blackTimerInterval);
 
-    // Start the timer for the active player
     if (isWhiteTurn) {
         whiteTimerInterval = setInterval(function() {
             whiteTime--;
@@ -103,7 +100,6 @@ function startTimer() {
         }, 1000);
     }
 
-    // Toggle the player's turn
     isWhiteTurn = !isWhiteTurn;
 }
 
@@ -127,65 +123,38 @@ function padTime(time) {
     return time < 10 ? '0' + time : time;
 }
 
-// Game over function when a player runs out of time
-function gameOver(message) {
-    clearInterval(whiteTimerInterval);
-    clearInterval(blackTimerInterval);
-    $('#game-over-modal').show();
-    $('#game-over-message').text(message);
-}
+// function gameOver(message) {
+//     clearInterval(whiteTimerInterval);
+//     clearInterval(blackTimerInterval);
 
-// Hide the game over modal and reset the game
-function resetGame() {
-    $('#game-over-modal').hide();
-    game.reset();
-    board.position('start');
-    updateMoveHistory();
-    updateStatus();
-    resetTimer();
-    isWhiteTurn = true; // White starts first
-}
+//     // Determine the winner or if it's a draw
+//     let result = '';
+//     if (message.includes('White ran out of time')) {
+//         result = 'black'; // Black wins
+//     } else if (message.includes('Black ran out of time')) {
+//         result = 'white'; // White wins
+//     } else if (message.includes('Checkmate')) {
+//         result = message.includes('White') ? 'black' : 'white'; // Winner is based on who lost
+//     } else if (message === 'Draw!') {
+//         result = 'draw'; // Draw condition
+//     }
 
-function updateMoveHistory() {
-    const history = game.history();
-    const tableBody = document.querySelector('#moveHistoryTable tbody');
-    tableBody.innerHTML = ''; // Clear the table body before adding new rows
+//     // Send the game result to the back-end via AJAX
+//     $.ajax({
+//         type: 'POST',
+//         url: 'end.php',  // The PHP script that handles the game result
+//         data: {
+//             game_id: gameId,  // Use the JavaScript variable gameId here
+//             result: result
+//         },
+//         success: function(response) {
+//             alert('Game Over: ' + message);
+//             window.location.href = 'welcome.php';  // Redirect to the welcome page or another page
+//         },
+//         error: function() {
+//             alert('An error occurred. Please try again.');
+//         }
+//     });
+// }
 
-    let moveNumber = 0;
-    let whiteMove, blackMove;
-    for (let i = 0; i < history.length; i += 2) {
-        moveNumber++;
-        whiteMove = history[i] || '';
-        blackMove = history[i + 1] || '';
-
-        // Add to the move history table
-        const row = `<tr>
-                        <td>${moveNumber}</td>
-                        <td>${whiteMove}</td>
-                        <td>${blackMove}</td>
-                    </tr>`;
-        tableBody.innerHTML += row;
-
-        // Send both white and black moves to the PHP script together
-        $.ajax({
-            url: './insertmoves.php',
-            type: 'POST',
-            data: {
-                game_id: 1,  // Assuming a game_id of 1 for simplicity, consider changing this dynamically
-                move_number: moveNumber,
-                white_move: whiteMove,
-                black_move: blackMove
-            },
-            success: function(response) {
-                console.log("Move history saved to database: " + response);
-            },
-            error: function(xhr, status, error) {
-                console.error("Error saving move history: " + error);
-            }
-        });
-    }
-}
-
-
-// Initialize the game
 init();

@@ -19,7 +19,8 @@ create table games (
     id int AUTO_INCREMENT PRIMARY KEY,  -- game id
     player_white varchar(255),           --username of the white player
     player_black varchar(255),           -- username of the black player
-    created_at timestamp default CURRENT_TIMESTAMP  -- when the game is created
+    created_at timestamp default CURRENT_TIMESTAMP,  -- when the game is created
+    winner varchar(30)
 );
 
 CREATE TABLE game_moves (
