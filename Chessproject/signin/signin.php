@@ -14,8 +14,8 @@ if (isset($_POST['signin'])) {
         if (password_verify($password, $row['password'])) {
             session_start();
             $_SESSION['loggedin'] = true;
-            $_SESSION['username'] = $row['username'];  // Store the username in the session
-            header("Location: ../welcome/welcome.php");  // Redirect to welcome.php
+            $_SESSION['username'] = $row['username'];  // store the username in the session
+            header("Location: ../welcome/welcome.php"); 
             exit();
         } else {
             echo '<script>

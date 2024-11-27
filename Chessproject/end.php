@@ -6,7 +6,6 @@ if (isset($_POST['game_id']) && isset($_POST['result'])) {
     $game_id = $_POST['game_id'];
     $result = $_POST['result'];  // 'white', 'black', or 'Draw'
 
-    // Use prepared statements to prevent SQL injection
     $stmt = $conn->prepare("UPDATE games SET winner = ? WHERE id = ?");
     $stmt->bind_param("ss", $result, $game_id);  // 'ss' means two strings
 

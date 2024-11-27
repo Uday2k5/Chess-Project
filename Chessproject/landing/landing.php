@@ -34,7 +34,7 @@
             <div class="hero-content">
                 <h1>Master the Game of Chess</h1>
                 <p>Sharpen your skills, challenge global players, and become a chess master.</p>
-                <a href="../index.php" class="btn btn-playnow">Play Now</a>
+                <a href="../signin/signinform.php" class="btn btn-playnow">Play Now</a>
             </div>
         </section>
 

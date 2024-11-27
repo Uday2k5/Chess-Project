@@ -24,9 +24,9 @@ if (isset($_POST['game_id']) && isset($_POST['player'])) {
         $player_black = $game['player_black'];
 
         if ($player_resigning == $player_white) {
-            $winner = $player_black; // Opponent wins if white resigns
+            $winner = $player_black;
         } else {
-            $winner = $player_white; // Opponent wins if black resigns
+            $winner = $player_white;
         }
 
         $update_stmt = $conn->prepare("UPDATE games SET winner = ? WHERE id = ?");

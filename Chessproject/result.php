@@ -2,7 +2,6 @@
 session_start();
 include('./connection.php');
 
-// Check if the user is logged in
 if (!isset($_SESSION['username'])) {
     header("Location: welcome.php");
     exit();
@@ -12,7 +11,6 @@ if (isset($_GET['game_id']) && isset($_GET['winner'])) {
     $game_id = $_GET['game_id'];
     $winner = $_GET['winner'];
 
-    // Fetch game details (optional)
     $stmt = $conn->prepare("SELECT player_white, player_black, created_at FROM games WHERE id = ?");
     $stmt->bind_param("s", $game_id);
     $stmt->execute();
@@ -24,7 +22,6 @@ if (isset($_GET['game_id']) && isset($_GET['winner'])) {
         $player_black = $game['player_black'];
         $created_at = $game['created_at'];
 
-        // Display the result
         echo "<h1>Game Result</h1>";
         echo "<p>Game ID: $game_id</p>";
         echo "<p>Player White: $player_white</p>";
