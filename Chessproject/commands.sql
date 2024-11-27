@@ -9,18 +9,26 @@ create table userinfo (
     -- username for each users  
     username varchar(255) not null UNIQUE,    
     -- storing hashed password
-    password varchar(255) not null        
+    password varchar(255) not null, 
     -- storing information when account was created 
     -- not necessary but aise hi bana diya
-    created_at timestamp default CURRENT_TIMESTAMP,     
+    created_at timestamp default CURRENT_TIMESTAMP
 );
 
-create table games (
-    id int AUTO_INCREMENT PRIMARY KEY,  -- game id
-    player_white varchar(255),           --username of the white player
-    player_black varchar(255),           -- username of the black player
-    created_at timestamp default CURRENT_TIMESTAMP,  -- when the game is created
-    winner varchar(30)
+-- create table games (
+--     id int AUTO_INCREMENT PRIMARY KEY,  -- game id
+--     player_white varchar(255),           --username of the white player
+--     player_black varchar(255),           -- username of the black player
+--     created_at timestamp default CURRENT_TIMESTAMP,  -- when the game is created
+--     winner varchar(30)
+-- );
+
+CREATE TABLE games (
+    id INT(11) PRIMARY KEY NOT NULL,
+    player_white VARCHAR(255) DEFAULT NULL,
+    player_black VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    winner VARCHAR(30) DEFAULT NULL
 );
 
 CREATE TABLE game_moves (
